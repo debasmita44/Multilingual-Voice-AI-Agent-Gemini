@@ -1,10 +1,10 @@
 from flask import Flask, render_template, request, jsonify, send_file
 from flask_cors import CORS
 import os
-from backend.modules.speech_to_text import transcribe_audio
-from backend.modules.language_detector import detect_language
-from backend.modules.llm_handler import generate_response
-from backend.modules.text_to_speech import text_to_speech
+from modules.speech_to_text import transcribe_audio
+from modules.language_detector import detect_language
+from modules.llm_handler import generate_response
+from modules.text_to_speech import text_to_speech
 
 app = Flask(__name__, 
             static_folder='frontend',
@@ -75,4 +75,5 @@ def get_audio():
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
+
     app.run(debug=False, host='0.0.0.0', port=port)
